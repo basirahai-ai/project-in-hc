@@ -105,3 +105,12 @@ void loop() {
   }
   delay(500);
 }
+
+## result
+Distance = 99.49 cm
+Distance = 99.50 cm
+Distance = 99.50 cm
+Distance = 99.50 cm
+Distance = 99.38 cm
+all these read for the 100 cm object away from sensor
+
