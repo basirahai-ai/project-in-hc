@@ -7,30 +7,31 @@ In short, the Arduino sends an electrical pulse of 5 volts for at least 10 micro
 After transmitting the waves, the sensor sets the output signal to a high level and starts measuring the time. If the waves are reflected by an object and return to the sensor, the output signal changes to a low level when the reflected waves are received. The duration for which the output signal remains high represents the time taken by the wave to travel to the object and return to the sensor. This time is then used to calculate the distance to the object, so the time is divided by two because the wave travels the distance twice: once going to the object and once returning from it.
 
 If the wave does not return, the output signal remains at a high level for up to approximately 38 milliseconds. After that, it changes to a low level. This indicates that the sensor did not receive a reflected wave within its measurement range.
-**formula** Distance  = (T x C)/2 
+
+formula : Distance  = (T x C)/2 
 |formula|explain|
 |-------|-------|
 | T | time that wave took|
 | C | speed of sound |
 
 
-diagram  
+ diagram : 
 Arduino
-   ↓
+   ->
 Trigger Signal
-   ↓
+   ->
 HC-SR04
-   ↓
+   ->
 Ultrasonic Waves
-   ↓
+   ->
 Object
-   ↓
+   ->
 Reflected Waves
-   ↓
+   ->
 Echo Signal
-   ↓
+   ->
 Time Measurement
-   ↓
+   ->
 Distance Calculation
 ## componet
 |component| work |
@@ -59,7 +60,7 @@ Distance Calculation
 
 
 
-
+```cpp
 // Hook up HC-SR04 with Trig to Arduino Pin 10, Echo to Arduino pin 13
 
 #define trigPin 10
@@ -105,12 +106,17 @@ void loop() {
   }
   delay(500);
 }
-
+```
 ## result
 Distance = 99.49 cm
+
 Distance = 99.50 cm
+
 Distance = 99.50 cm
+
 Distance = 99.50 cm
+
 Distance = 99.38 cm
+
 all these read for the 100 cm object away from sensor
 
