@@ -42,7 +42,8 @@ Distance Calculation
 |transmitter| transmit the ultrasonic wave|
 |receiver| receive the reflected wave |
 
-![HC-SR04 Ultrasonic Sensor](Screenshot 2026-09-14 032221.png)
+![HC-SR04 Ultrasonic Sensor](digram.png)
+
 ## how to connect to Arduino
 | part | were to connect |
 |------|-----------------|
