@@ -42,7 +42,7 @@ Distance Calculation
 |transmitter| transmit the ultrasonic wave|
 |receiver| receive the reflected wave |
 
-![HC-SR04 Ultrasonic Sensor](digram.png)
+![HC-SR04 Ultrasonic Sensor](diagram.png)
 
 ## how to connect to Arduino
 | part | were to connect |
@@ -52,3 +52,56 @@ Distance Calculation
 | echo | connected to any port like 10 or 8 in the Arduino |
 | gnd | connected to ground port in in the Arduino |
 
+![HC-SR04 Ultrasonic Sensor](digram2.png)
+
+## coding 
+
+
+
+
+
+// Hook up HC-SR04 with Trig to Arduino Pin 10, Echo to Arduino pin 13
+
+#define trigPin 10
+#define echoPin 13
+
+float duration, distance;
+
+void setup() {
+  Serial.begin (9600);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+}
+
+void loop() {
+   
+  // Write a pulse to the HC-SR04 Trigger Pin
+  
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  
+  // Measure the response from the HC-SR04 Echo Pin
+ 
+  duration = pulseIn(echoPin, HIGH);
+  
+  // Determine distance from duration
+  // Use 343 metres per second as speed of sound
+  
+  distance = (duration / 2) * 0.0343;
+  
+  // Send results to Serial Monitor
+
+  Serial.print("Distance = ");
+  if (distance >= 400 || distance <= 2) {
+     Serial.println("Out of range");
+  }
+  else {
+    Serial.print(distance);
+    Serial.println(" cm");
+    delay(500);
+  }
+  delay(500);
+}
